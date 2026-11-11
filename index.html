@@ -117,7 +117,7 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen font-sans selection:bg-emerald-500/20 selection:text-emerald-800 dark:selection:bg-emerald-500/30 dark:selection:text-emerald-300 relative overflow-x-hidden antialiased transition-colors duration-200">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen font-sans selection:bg-emerald-500/20 selection:text-emerald-800 dark:selection:bg-emerald-500/30 dark:selection:text-emerald-300 relative overflow-x-hidden antialiased transition-colors duration-300">
   
   <!-- Subtle Ambient Glow Orbs -->
   <div class="fixed top-[-10%] left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-gradient-to-b from-emerald-500/10 via-cyan-500/5 to-transparent dark:from-emerald-600/15 dark:via-cyan-500/10 dark:to-transparent blur-3xl pointer-events-none -z-10"></div>
@@ -126,13 +126,13 @@
   <!-- Background Grid -->
   <div class="fixed inset-0 bg-grid-pattern pointer-events-none -z-20 opacity-60 dark:opacity-40"></div>
 
-  <!-- Main Container: max-w-6xl -->
+  <!-- Main Container: max-w-6xl mx-auto px-4 lg:px-8 -->
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
 
-    <!-- Top Header (Logo + FY Badge + Light/Dark Theme Toggle) -->
-    <header class="flex items-center justify-between mb-8 pb-5 border-b border-slate-200/80 dark:border-slate-800/80">
+    <!-- Header (Fixed SVG Logo + FY Subtitle + Theme Toggle in top-right) -->
+    <header class="relative flex items-center justify-between mb-8 pb-5 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
       <div class="flex items-center gap-3">
-        <!-- SVG Logo with expanded viewBox (0 0 180 32) so 'e' never clips -->
+        <!-- SVG Logo: viewBox updated from 0 0 160 32 to 0 0 180 32 so 'e' never clips -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 32" class="h-9 sm:h-11 w-auto">
           <!-- Abstract Fintech Growth Icon -->
           <rect x="0" y="20" width="8" height="12" rx="4" fill="#3B82F6" />
@@ -148,15 +148,15 @@
         <span class="hidden sm:inline-block text-xs font-semibold tracking-wider text-slate-500 dark:text-slate-400 uppercase">FY 2026-27 Tax & Salary Comparator</span>
       </div>
 
+      <!-- Minimal Sun/Moon Theme Toggle Button in top-right -->
       <div class="flex items-center gap-3">
         <span class="sm:hidden text-[11px] font-semibold text-slate-500 dark:text-slate-400 uppercase">FY 26-27</span>
 
-        <!-- Light & Dark Mode Toggle Button -->
         <button 
           id="theme-toggle-btn" 
           type="button" 
-          aria-label="Toggle theme" 
-          class="p-2 sm:p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 shadow-sm hover:shadow transition"
+          aria-label="Toggle light or dark theme" 
+          class="p-2 sm:p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 shadow-sm hover:shadow transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           title="Toggle light/dark theme"
         >
           <!-- Sun Icon (visible in dark mode) -->
@@ -171,18 +171,17 @@
       </div>
     </header>
 
-    <!-- Monetization: Top Ad Banner -->
-    <div id="ad-top" class="w-full h-[50px] bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 rounded-xl mb-8 flex items-center justify-center text-slate-400 dark:text-slate-600 text-xs">Advertisement</div>
-
-    <!-- Responsive 2-Column Grid (lg: 7 cols left, 5 cols right) -->
+    <!-- Responsive CSS Grid: 2 columns on desktop (7 cols left, 5 cols right), stacking naturally on mobile -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-      <!-- LEFT COLUMN: The Input Engine & Visualizer (col-span-7) -->
+      <!-- ========================================== -->
+      <!-- LEFT COLUMN: Inputs (lg:col-span-7)       -->
+      <!-- ========================================== -->
       <div class="lg:col-span-7 space-y-6">
 
         <!-- SECTION 1: THE INPUT ENGINE -->
-        <section class="bg-white/90 dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 sm:p-7 backdrop-blur-xl shadow-md dark:shadow-xl">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-slate-200/80 dark:border-slate-800/80 gap-3">
+        <section class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-7 shadow-sm transition-colors duration-300">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-slate-200 dark:border-slate-800 gap-3">
             <div>
               <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
@@ -240,7 +239,7 @@
           </div>
 
           <!-- Deductions for Old Regime Collapsible Accordion -->
-          <div class="mt-7 pt-5 border-t border-slate-200/80 dark:border-slate-800/80">
+          <div class="mt-7 pt-5 border-t border-slate-200 dark:border-slate-800">
             <div class="flex items-center justify-between cursor-pointer group" id="toggle-deductions-btn">
               <div class="flex items-center gap-2.5">
                 <span class="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition">
@@ -263,7 +262,7 @@
 
             <div id="deductions-panel" class="hidden grid grid-cols-1 sm:grid-cols-3 gap-3.5 mt-5">
               <!-- 80C Deduction -->
-              <div class="bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-xl p-4">
+              <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-colors duration-300">
                 <div class="flex items-center justify-between mb-1">
                   <label for="input-80c" class="text-xs font-semibold text-slate-700 dark:text-slate-300">Section 80C</label>
                   <span class="text-[10px] text-slate-500 font-mono">Max ₹1.5L</span>
@@ -284,7 +283,7 @@
               </div>
 
               <!-- HRA Exemption -->
-              <div class="bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-xl p-4">
+              <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-colors duration-300">
                 <div class="flex items-center justify-between mb-1">
                   <label for="input-hra" class="text-xs font-semibold text-slate-700 dark:text-slate-300">HRA Exemption</label>
                   <span class="text-[10px] text-slate-500 font-mono">Actual Rent</span>
@@ -305,7 +304,7 @@
               </div>
 
               <!-- 80D Medical Insurance -->
-              <div class="bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-xl p-4">
+              <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-colors duration-300">
                 <div class="flex items-center justify-between mb-1">
                   <label for="input-80d" class="text-xs font-semibold text-slate-700 dark:text-slate-300">Section 80D</label>
                   <span class="text-[10px] text-slate-500 font-mono">Up to ₹1L</span>
@@ -328,9 +327,12 @@
           </div>
         </section>
 
+        <!-- Left Column Monetization: Top Ad Banner stretching cleanly within col-span-7 -->
+        <div id="ad-top" class="w-full h-[55px] bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center text-slate-400 dark:text-slate-600 text-xs transition-colors duration-300">Advertisement</div>
+
         <!-- SECTION 2: THE VISUALIZER -->
-        <section class="bg-white/90 dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 sm:p-7 backdrop-blur-xl shadow-md dark:shadow-xl">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-slate-200/80 dark:border-slate-800/80 gap-3">
+        <section class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-7 shadow-sm transition-colors duration-300">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-slate-200 dark:border-slate-800 gap-3">
             <div>
               <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-cyan-500 dark:bg-cyan-400"></span>
@@ -359,7 +361,7 @@
             <!-- Breakdown Legends -->
             <div class="md:col-span-7 space-y-3">
               <!-- Take Home -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/70 hover:border-emerald-500/40 transition">
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 transition">
                 <div class="flex items-center gap-3">
                   <span class="w-3.5 h-3.5 rounded-md bg-emerald-500 dark:bg-emerald-400 shadow-sm dark:shadow-[0_0_10px_rgba(52,211,153,0.5)]"></span>
                   <div>
@@ -374,7 +376,7 @@
               </div>
 
               <!-- Income Tax -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/70 hover:border-rose-500/40 transition">
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-rose-500/40 transition">
                 <div class="flex items-center gap-3">
                   <span class="w-3.5 h-3.5 rounded-md bg-rose-500 shadow-sm dark:shadow-[0_0_10px_rgba(244,63,94,0.5)]"></span>
                   <div>
@@ -389,7 +391,7 @@
               </div>
 
               <!-- EPF -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/70 hover:border-sky-500/40 transition">
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-sky-500/40 transition">
                 <div class="flex items-center gap-3">
                   <span class="w-3.5 h-3.5 rounded-md bg-sky-500 shadow-sm dark:shadow-[0_0_10px_rgba(14,165,233,0.5)]"></span>
                   <div>
@@ -407,7 +409,7 @@
         </section>
 
         <!-- Tax Slabs Reference Drawer -->
-        <section class="bg-white/80 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-5 sm:p-6 shadow-sm">
+        <section class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 sm:p-6 shadow-sm transition-colors duration-300">
           <div class="flex items-center justify-between cursor-pointer" id="toggle-slabs-btn">
             <div class="flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -420,7 +422,7 @@
 
           <div id="slabs-reference-panel" class="hidden mt-6 pt-6 border-t border-slate-200 dark:border-slate-800 grid grid-cols-1 md:grid-cols-2 gap-5 text-xs text-slate-700 dark:text-slate-300">
             <!-- New Slabs -->
-            <div class="bg-slate-50 dark:bg-slate-950/60 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
               <h4 class="font-bold mb-2 text-emerald-600 dark:text-emerald-400">New Regime Tax Slabs</h4>
               <ul class="space-y-1.5 font-mono text-[11px]">
                 <li class="flex justify-between"><span>₹0 - ₹3,00,000</span> <span class="text-slate-500 dark:text-slate-400">Nil</span></li>
@@ -430,7 +432,7 @@
                 <li class="flex justify-between"><span>₹12,00,001 - ₹15,00,000</span> <span class="text-slate-500 dark:text-slate-400">20%</span></li>
                 <li class="flex justify-between"><span>Above ₹15,00,000</span> <span class="text-slate-500 dark:text-slate-400">30%</span></li>
               </ul>
-              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-3 border-t border-slate-200 dark:border-slate-800/80 pt-2 font-sans">
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-3 border-t border-slate-200 dark:border-slate-800 pt-2 font-sans">
                 ✓ Standard Deduction: ₹75,000<br/>
                 ✓ Full Sec 87A rebate up to ₹12,00,000 taxable income (effective zero tax up to ₹12.75L gross CTC).<br/>
                 ✓ 4% Health & Education Cess on calculated tax.
@@ -438,7 +440,7 @@
             </div>
 
             <!-- Old Slabs -->
-            <div class="bg-slate-50 dark:bg-slate-950/60 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
               <h4 class="font-bold mb-2 text-cyan-600 dark:text-cyan-400">Old Regime Tax Slabs</h4>
               <ul class="space-y-1.5 font-mono text-[11px]">
                 <li class="flex justify-between"><span>₹0 - ₹2,50,000</span> <span class="text-slate-500 dark:text-slate-400">Nil</span></li>
@@ -446,7 +448,7 @@
                 <li class="flex justify-between"><span>₹5,00,001 - ₹10,00,000</span> <span class="text-slate-500 dark:text-slate-400">20%</span></li>
                 <li class="flex justify-between"><span>Above ₹10,00,000</span> <span class="text-slate-500 dark:text-slate-400">30%</span></li>
               </ul>
-              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-3 border-t border-slate-200 dark:border-slate-800/80 pt-2 font-sans">
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-3 border-t border-slate-200 dark:border-slate-800 pt-2 font-sans">
                 ✓ Standard Deduction: ₹50,000<br/>
                 ✓ Full Sec 87A rebate for taxable income ≤ ₹5,00,000.<br/>
                 ✓ Eligible for 80C (max ₹1.5L), 80D, and HRA exemptions.<br/>
@@ -458,11 +460,13 @@
 
       </div>
 
-      <!-- RIGHT COLUMN: Results / Comparator Cards (col-span-5) -->
+      <!-- ========================================== -->
+      <!-- RIGHT COLUMN: Results (lg:col-span-5)      -->
+      <!-- ========================================== -->
       <div class="lg:col-span-5 space-y-6 lg:sticky lg:top-6">
 
         <!-- Hero Stat Banner: Massive Glowing Take-Home Card -->
-        <div class="relative rounded-2xl p-6 sm:p-7 bg-gradient-to-br from-white via-slate-50 to-emerald-50/40 dark:from-slate-900/95 dark:via-slate-900/80 dark:to-slate-900/60 border border-slate-200/90 dark:border-slate-800/80 shadow-lg dark:shadow-2xl overflow-hidden backdrop-blur-xl">
+        <div class="relative rounded-2xl p-6 sm:p-7 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-md dark:shadow-2xl overflow-hidden transition-colors duration-300">
           <div class="absolute -top-24 right-0 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
           <!-- Winner Badge & Savings Line -->
@@ -483,29 +487,29 @@
           </div>
 
           <!-- Quick Stat Tiles -->
-          <div class="grid grid-cols-2 gap-3 pt-4 border-t border-slate-200/80 dark:border-slate-800">
-            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/70">
+          <div class="grid grid-cols-2 gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 transition-colors duration-300">
               <p class="text-[11px] text-slate-500 dark:text-slate-400 uppercase font-medium">Annual In-Hand</p>
               <p id="hero-annual-salary" class="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-200 mt-0.5 tabular-nums">₹0</p>
             </div>
-            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/70">
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 transition-colors duration-300">
               <p class="text-[11px] text-slate-500 dark:text-slate-400 uppercase font-medium">Effective Tax</p>
               <p id="hero-effective-tax" class="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-200 mt-0.5 tabular-nums">0.0%</p>
             </div>
           </div>
         </div>
 
-        <!-- SECTION 3: THE SHOWDOWN (Side-by-Side / Stacked Regime Cards) -->
+        <!-- SECTION 3: THE SHOWDOWN (Side-by-Side / Stacked Regime Comparison Cards) -->
         <section class="space-y-4">
           <div class="px-1">
-            <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">Regime Comparator</h3>
+            <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">New Regime vs Old Regime</h3>
             <p class="text-xs text-slate-500 dark:text-slate-400">Direct comparison of New Regime (FY 2026-27) vs Old Regime</p>
           </div>
 
           <div class="space-y-4">
             
             <!-- CARD 1: NEW REGIME -->
-            <div id="card-new" class="relative rounded-2xl p-5 sm:p-6 bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 transition-all duration-300 flex flex-col justify-between shadow-sm">
+            <div id="card-new" class="relative rounded-2xl p-5 sm:p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all duration-300 flex flex-col justify-between shadow-sm">
               <!-- Winner Badge Container -->
               <div class="flex items-center justify-between mb-3.5">
                 <div>
@@ -520,7 +524,7 @@
               </div>
 
               <!-- Highlight Metric -->
-              <div class="bg-slate-50 dark:bg-slate-950/80 rounded-xl p-3.5 border border-slate-200 dark:border-slate-800/80 mb-4">
+              <div class="bg-slate-50 dark:bg-slate-950 rounded-xl p-3.5 border border-slate-200 dark:border-slate-800 mb-4 transition-colors duration-300">
                 <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider">Monthly Take-Home</p>
                 <p class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-0.5 tabular-nums" id="new-monthly-inhand">₹0</p>
                 <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Annual In-Hand: <span class="font-mono text-slate-800 dark:text-slate-200 font-bold" id="new-annual-inhand">₹0</span></p>
@@ -528,35 +532,35 @@
 
               <!-- Itemized Breakdown -->
               <div class="space-y-2 text-xs text-slate-700 dark:text-slate-300 flex-1">
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400">Gross CTC</span>
                   <span class="font-mono text-slate-900 dark:text-slate-200 font-semibold" id="new-gross-ctc">₹0</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400">Standard Deduction</span>
                   <span class="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">- ₹75,000</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400">Deductions (80C, HRA, 80D)</span>
                   <span class="font-mono text-slate-400 dark:text-slate-500 font-semibold">Not Allowed</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400">Taxable Income</span>
                   <span class="font-mono text-slate-900 dark:text-slate-200 font-semibold" id="new-taxable-income">₹0</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400">Sec 87A Rebate</span>
                   <span class="font-mono text-emerald-600 dark:text-emerald-400 font-semibold" id="new-rebate-87a">- ₹0</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400">Calculated Income Tax</span>
                   <span class="font-mono text-rose-600 dark:text-rose-400 font-semibold" id="new-raw-tax">₹0</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400">Health & Ed. Cess (4%)</span>
                   <span class="font-mono text-rose-600 dark:text-rose-400 font-semibold" id="new-cess">₹0</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400 font-semibold">Total Annual Tax</span>
                   <span class="font-mono text-rose-600 dark:text-rose-400 font-bold" id="new-total-tax">₹0</span>
                 </div>
@@ -567,14 +571,14 @@
               </div>
 
               <!-- Bottom Footer Notice -->
-              <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/80 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
+              <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
                 <span>Rebate: Up to ₹12L Taxable</span>
                 <span class="text-emerald-600 dark:text-emerald-400 font-semibold" id="new-advantage-tag"></span>
               </div>
             </div>
 
             <!-- CARD 2: OLD REGIME -->
-            <div id="card-old" class="relative rounded-2xl p-5 sm:p-6 bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 transition-all duration-300 flex flex-col justify-between shadow-sm">
+            <div id="card-old" class="relative rounded-2xl p-5 sm:p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all duration-300 flex flex-col justify-between shadow-sm">
               <!-- Winner Badge Container -->
               <div class="flex items-center justify-between mb-3.5">
                 <div>
@@ -589,7 +593,7 @@
               </div>
 
               <!-- Highlight Metric -->
-              <div class="bg-slate-50 dark:bg-slate-950/80 rounded-xl p-3.5 border border-slate-200 dark:border-slate-800/80 mb-4">
+              <div class="bg-slate-50 dark:bg-slate-950 rounded-xl p-3.5 border border-slate-200 dark:border-slate-800 mb-4 transition-colors duration-300">
                 <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider">Monthly Take-Home</p>
                 <p class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-0.5 tabular-nums" id="old-monthly-inhand">₹0</p>
                 <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Annual In-Hand: <span class="font-mono text-slate-800 dark:text-slate-200 font-bold" id="old-annual-inhand">₹0</span></p>
@@ -597,35 +601,35 @@
 
               <!-- Itemized Breakdown -->
               <div class="space-y-2 text-xs text-slate-700 dark:text-slate-300 flex-1">
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400">Gross CTC</span>
                   <span class="font-mono text-slate-900 dark:text-slate-200 font-semibold" id="old-gross-ctc">₹0</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400">Standard Deduction</span>
                   <span class="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">- ₹50,000</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400">Deductions (80C + 80D + HRA)</span>
                   <span class="font-mono text-emerald-600 dark:text-emerald-400 font-semibold" id="old-total-deductions">- ₹0</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400">Taxable Income</span>
                   <span class="font-mono text-slate-900 dark:text-slate-200 font-semibold" id="old-taxable-income">₹0</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400">Sec 87A Rebate</span>
                   <span class="font-mono text-emerald-600 dark:text-emerald-400 font-semibold" id="old-rebate-87a">- ₹0</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400">Calculated Income Tax</span>
                   <span class="font-mono text-rose-600 dark:text-rose-400 font-semibold" id="old-raw-tax">₹0</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400">Health & Ed. Cess (4%)</span>
                   <span class="font-mono text-rose-600 dark:text-rose-400 font-semibold" id="old-cess">₹0</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800/60">
+                <div class="flex justify-between py-1.5 border-b border-slate-100 dark:border-slate-800">
                   <span class="text-slate-500 dark:text-slate-400 font-semibold">Total Annual Tax</span>
                   <span class="font-mono text-rose-600 dark:text-rose-400 font-bold" id="old-total-tax">₹0</span>
                 </div>
@@ -636,7 +640,7 @@
               </div>
 
               <!-- Bottom Footer Notice -->
-              <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/80 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
+              <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
                 <span>Rebate: Up to ₹5L Taxable</span>
                 <span class="text-emerald-600 dark:text-emerald-400 font-semibold" id="old-advantage-tag"></span>
               </div>
@@ -645,15 +649,15 @@
           </div>
         </section>
 
-        <!-- Monetization: Sidebar/Bottom Ad Banner -->
-        <div id="ad-mid" class="w-full h-[100px] bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center text-slate-400 dark:text-slate-600 text-xs">Advertisement</div>
+        <!-- Right Column Monetization: Mid Ad Banner stretching cleanly within col-span-5 -->
+        <div id="ad-mid" class="w-full h-[120px] bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center text-slate-400 dark:text-slate-600 text-xs transition-colors duration-300">Advertisement</div>
 
       </div>
 
     </div>
 
     <!-- Footer -->
-    <footer class="text-center py-8 mt-12 border-t border-slate-200 dark:border-slate-800/80 text-xs text-slate-500 dark:text-slate-500">
+    <footer class="text-center py-8 mt-12 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-500 transition-colors duration-300">
       <p>© 2026 TakeHome • Built for Indian Salaried Professionals • FY 2026-27 Compliant</p>
       <p class="mt-1 text-[11px] text-slate-400 dark:text-slate-600">Disclaimer: For comparison and estimation purposes. Consult a chartered accountant or financial advisor for filing tax returns.</p>
     </footer>
@@ -1078,7 +1082,8 @@
         elements.oldAnnualInhand.textContent = formatINR(oldResult.annualTakeHome);
 
         // Dynamic Glow & Highlight: Winner Card vs Runner-Up
-        const winnerClasses = ['border-emerald-500', 'ring-2', 'ring-emerald-500/25', 'shadow-lg', 'shadow-emerald-500/10', 'dark:shadow-[0_0_20px_rgba(16,185,129,0.35)]'];
+        // Exact styling: border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.4)]
+        const winnerClasses = ['border-emerald-500', 'shadow-[0_0_15px_rgba(16,185,129,0.4)]'];
         const defaultClasses = ['border-slate-200', 'dark:border-slate-800'];
 
         if (isNewWinner) {
@@ -1125,6 +1130,9 @@
 
         updateAll();
       }
+
+      // Expose to window for inline access if needed
+      window.toggleTheme = toggleTheme;
 
       if (elements.themeToggleBtn) {
         elements.themeToggleBtn.addEventListener('click', toggleTheme);
